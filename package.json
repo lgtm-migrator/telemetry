@@ -38,6 +38,15 @@
     "dist/**/*"
   ],
   "homepage": "https://github.com/MapColonies/telemetry#readme",
+  "dependencies": {
+    "@opentelemetry/api": "^0.14.0",
+    "@opentelemetry/core": "^0.14.0",
+    "@opentelemetry/exporter-collector": "0.14.0",
+    "@opentelemetry/node": "^0.14.0",
+    "@opentelemetry/plugin-http": "^0.14.0",
+    "@opentelemetry/plugin-https": "^0.14.0",
+    "@opentelemetry/tracing": "^0.14.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
