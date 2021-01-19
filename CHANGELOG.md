@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.1.0-0 (2021-01-19)
+
+
+### Features
+
+* **tracing:** add support for opentelemetry tracing ([#5](https://github.com/MapColonies/telemetry/issues/5)) ([de7e983](https://github.com/MapColonies/telemetry/commit/de7e983b6caa98520bd989d1d0705e7e8cc70edb)), closes [#2](https://github.com/MapColonies/telemetry/issues/2)
+
 ## 1.1.0 (2021-01-04)
 
 
