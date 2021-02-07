@@ -4,8 +4,6 @@
   "description": "Package for everything opentelemetry related in map colonies",
   "main": "./dist/index.js",
   "scripts": {
-    "test:unit": "jest --config=./tests/configurations/unit/jest.config.js",
-    "test:integration": "jest --config=./tests/configurations/integration/jest.config.js",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "prelint:fix": "npm run format:fix",
@@ -13,7 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "release": "standard-version",
-    "test": "npm run test:unit && npm run test:integration",
+    "test": "jest --config=./tests/configurations/jest.config.js",
     "prebuild": "npm run clean",
     "build": "tsc --project tsconfig.build.json",
     "start": "npm run build && cd dist && node ./index.js",
@@ -39,13 +37,13 @@
   ],
   "homepage": "https://github.com/MapColonies/telemetry#readme",
   "dependencies": {
-    "@opentelemetry/api": "^0.14.0",
-    "@opentelemetry/core": "^0.14.0",
-    "@opentelemetry/exporter-collector": "0.14.0",
-    "@opentelemetry/node": "^0.14.0",
-    "@opentelemetry/plugin-http": "^0.14.0",
-    "@opentelemetry/plugin-https": "^0.14.0",
-    "@opentelemetry/tracing": "^0.14.0"
+    "@opentelemetry/api": "^0.15.0",
+    "@opentelemetry/core": "^0.15.0",
+    "@opentelemetry/exporter-collector": "0.15.0",
+    "@opentelemetry/instrumentation-http": "^0.15.0",
+    "@opentelemetry/node": "^0.15.0",
+    "@opentelemetry/tracing": "^0.15.0",
+    "env-var": "^7.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
