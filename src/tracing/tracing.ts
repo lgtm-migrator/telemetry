@@ -33,8 +33,9 @@ export class Tracing implements TelemetryBase<Tracer> {
 
     const exporter = new CollectorTraceExporter({
       ...exporterConfig,
+      serviceName,
       logger: this.logger,
-      attributes: { 'service.version': version, 'service.name': serviceName },
+      attributes: { 'service.version': version },
     });
 
     const httpInstrumentation = new HttpInstrumentation({ logger: this.logger });
