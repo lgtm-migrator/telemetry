@@ -1,15 +1,15 @@
 import { NodeTracerProvider } from '@opentelemetry/node';
 import { CollectorTraceExporter } from '@opentelemetry/exporter-collector';
 import { SimpleSpanProcessor } from '@opentelemetry/tracing';
-import { HttpInstrumentation } from '@opentelemetry/instrumentation-http';
-import { Logger, NoopTracerProvider, Tracer } from '@opentelemetry/api';
+import { InstrumentationOption, registerInstrumentations } from '@opentelemetry/instrumentation';
+import { NoopTracerProvider, Tracer } from '@opentelemetry/api';
 import { TelemetryBase } from '../common/interfaces';
 import { getTracingConfig, TracingConfig } from './config';
 
 export class Tracing implements TelemetryBase<Tracer> {
   private provider?: NodeTracerProvider;
   private readonly config: TracingConfig;
-  public constructor(private readonly tracerName: string, private readonly logger?: Logger) {
+  public constructor(private readonly tracerName: string, private readonly insturmentations?: InstrumentationOption[]) {
     this.config = getTracingConfig();
   }
 
@@ -21,26 +21,17 @@ export class Tracing implements TelemetryBase<Tracer> {
       return provider.getTracer(this.tracerName);
     }
 
-    this.provider = new NodeTracerProvider({
-      logger: this.logger,
-      logLevel: exporterConfig.loglevel,
-      // be sure to disable old plugins
-      plugins: {
-        http: { enabled: false, path: '@opentelemetry/plugin-http' },
-        https: { enabled: false, path: '@opentelemetry/plugin-https' },
-      },
-    });
+    this.provider = new NodeTracerProvider();
+
+    registerInstrumentations({ tracerProvider: this.provider, instrumentations: this.insturmentations });
 
     const exporter = new CollectorTraceExporter({
       ...exporterConfig,
       serviceName,
-      logger: this.logger,
       attributes: { 'service.version': version },
     });
 
-    const httpInstrumentation = new HttpInstrumentation({ logger: this.logger });
-    httpInstrumentation.enable();
-
+    // consider batch processor
     this.provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
     this.provider.register();
 
