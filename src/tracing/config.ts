@@ -1,6 +1,7 @@
 import * as env from 'env-var';
-import { loadPackageInfo } from '../common/packageInfoLoader';
+import { getCommonConfig } from '../common/config';
 
+const DEFAULT_URL = 'http://localhost:55681/v1/trace';
 export interface TracingConfig {
   isEnabled: boolean;
   serviceName?: string;
@@ -16,13 +17,11 @@ export const getTracingConfig = (): TracingConfig => {
     return { isEnabled: false };
   }
 
-  const packageConfig = loadPackageInfo();
+  const commonConfig = getCommonConfig();
 
   return {
     isEnabled: true,
-    serviceName: env.get('TELEMEYTRY_SERVICE_NAME').asString() ?? packageConfig.name,
-    hostname: env.get('TELEMETRY_HOST_NAME').asString(),
-    version: env.get('TELEMETRY_SERVICE_VERSION').asString() ?? packageConfig.version,
-    url: env.get('TELEMETRY_TRACING_URL').required().asUrlString(),
+    url: env.get('TELEMETRY_TRACING_URL').asUrlString() ?? DEFAULT_URL,
+    ...commonConfig,
   };
 };
