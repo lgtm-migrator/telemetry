@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-3](https://github.com/MapColonies/telemetry/compare/v1.1.0-2...v1.1.0-3) (2021-03-22)
+
+
+### Features
+
+* **metrics:** added metrics support ([d3da55f](https://github.com/MapColonies/telemetry/commit/d3da55fd3390ab072f006667bf86909a2b808d56))
+
 ## [1.1.0-2](https://github.com/MapColonies/telemetry/compare/v1.1.0-1...v1.1.0-2) (2021-02-07)
 
 
