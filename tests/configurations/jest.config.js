@@ -12,7 +12,7 @@ module.exports = {
     'default',
     ['jest-html-reporters', { multipleReportsUnitePath: './reports', pageTitle: 'tests', publicPath: './reports', filename: 'tests.html' }],
   ],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/node_modules/**', '!**/vendor/**'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/node_modules/**', '!**/vendor/**', '!<rootDir>/src/metrics/meterWrapper.ts'],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: ['text-summary', 'html', 'json'],
   coverageThreshold: {
