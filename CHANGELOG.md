@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-5](https://github.com/MapColonies/telemetry/compare/v1.1.0-4...v1.1.0-5) (2021-04-22)
+
+
+### Features
+
+* **tracing:** added hook to integrate with pino logger ([#17](https://github.com/MapColonies/telemetry/issues/17)) ([688d67f](https://github.com/MapColonies/telemetry/commit/688d67f299c9327726a9603c11cd55d33af44cdc))
+
 ## [1.1.0-4](https://github.com/MapColonies/telemetry/compare/v1.1.0-3...v1.1.0-4) (2021-04-04)
 
 ## [1.1.0-3](https://github.com/MapColonies/telemetry/compare/v1.1.0-2...v1.1.0-3) (2021-03-22)
