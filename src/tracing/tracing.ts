@@ -3,7 +3,6 @@ import { CollectorTraceExporter } from '@opentelemetry/exporter-collector';
 import { SimpleSpanProcessor } from '@opentelemetry/tracing';
 import { InstrumentationOption, registerInstrumentations } from '@opentelemetry/instrumentation';
 import { NoopTracerProvider, Tracer } from '@opentelemetry/api';
-import { AsyncHooksContextManager } from '@opentelemetry/context-async-hooks';
 import { TelemetryBase } from '../common/interfaces';
 import { getTracingConfig, TracingConfig } from './config';
 
@@ -34,7 +33,7 @@ export class Tracing implements TelemetryBase<Tracer> {
 
     // consider batch processor
     this.provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-    this.provider.register({ contextManager: new AsyncHooksContextManager() });
+    this.provider.register();
 
     return this.provider.getTracer(this.tracerName);
   }
