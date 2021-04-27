@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0-7](https://github.com/MapColonies/telemetry/compare/v1.1.0-6...v1.1.0-7) (2021-04-27)
+
+
+### Bug Fixes
+
+* **deps:** removed async hooks ([#19](https://github.com/MapColonies/telemetry/issues/19)) ([c6bd118](https://github.com/MapColonies/telemetry/commit/c6bd118f1cd85059c3dcef02d7c36aaca8d91a15))
+
 ## [1.1.0-6](https://github.com/MapColonies/telemetry/compare/v1.1.0-5...v1.1.0-6) (2021-04-27)
 
 ## [1.1.0-5](https://github.com/MapColonies/telemetry/compare/v1.1.0-4...v1.1.0-5) (2021-04-22)
