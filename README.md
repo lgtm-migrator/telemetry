@@ -1,7 +1,9 @@
 # Telemetry
 ## Motive
 This package goal is to make the experience of configuring and working with OpenTelemetry easier.
-## Tracing
+## example
+Below are short examples for tracing and metrics. More examples are available at the [examples folder](examples/), and the various opentelemetry repos.
+### Tracing
 The following code shows a simple example of how to work with tracing. please notice that you need to manually install any auto-instrumentation library that you require.
 
 ```typescript
@@ -22,7 +24,7 @@ span.end();
 tracing.stop().then(() => console.log('done'));
 ```
 
-## Metrics
+### Metrics
 The following code shows a simple example of how to work with metrics.
 
 ```typescript
@@ -38,8 +40,8 @@ counter.add(1);
 
 metrics.stop().then(() => console.log('done'));
 ```
-### Configuration
-#### Common configuration
+## Configuration
+### Common configuration
 | name |allowed value| default value | description
 |---|---|---|---|
 |TELEMETRY_SERVICE_NAME|string|from package.json| The service name
@@ -47,7 +49,7 @@ metrics.stop().then(() => console.log('done'));
 |TELEMETRY_HOST_NAME|string|`os.hostname()`|The host name
 <br/>
 
-#### Tracing configuration
+### Tracing configuration
 | name |allowed value| default value | description 
 |---|---|---|---|
 |TELEMETRY_TRACING_ENABLED|'true', 'false'|'false'|Should Tracing be enabled
@@ -55,7 +57,7 @@ metrics.stop().then(() => console.log('done'));
 
 <span style="color:red">*</span> required (only when tracing is enabled).
 <br/>
-#### Metric configuration
+### Metric configuration
 | name |allowed value| default value | description
 |---|---|---|---|
 |TELEMETRY_METRICS_ENABLED|'true', 'false'|'false'|Should Metrics be enabled| 
