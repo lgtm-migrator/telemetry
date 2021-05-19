@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/MapColonies/telemetry/compare/v1.1.0...v1.1.1) (2021-05-19)
+
+
+### Bug Fixes
+
+* **deps:** changed the api version to be fixed ([#22](https://github.com/MapColonies/telemetry/issues/22)) ([e09cbf5](https://github.com/MapColonies/telemetry/commit/e09cbf5d879f7611c7dd2a7d967b72fedfb5aecc))
+
 ## [1.1.0](https://github.com/MapColonies/telemetry/compare/v1.1.0-7...v1.1.0) (2021-04-29)
 
 ## [1.1.0-7](https://github.com/MapColonies/telemetry/compare/v1.1.0-6...v1.1.0-7) (2021-04-27)
