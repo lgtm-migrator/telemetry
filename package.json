@@ -39,13 +39,13 @@
   "homepage": "https://github.com/MapColonies/telemetry#readme",
   "dependencies": {
     "@opentelemetry/api": "1.0.0-rc.0",
-    "@opentelemetry/exporter-collector": "0.19.0",
+    "@opentelemetry/exporter-collector": "^0.22.0",
     "@opentelemetry/instrumentation": "^0.19.0",
     "@opentelemetry/metrics": "^0.19.0",
-    "@opentelemetry/node": "^0.19.0",
-    "@opentelemetry/tracing": "^0.19.0",
-    "@types/pino": "^6.3.7",
-    "env-var": "^7.0.0"
+    "@opentelemetry/node": "^0.22.0",
+    "@opentelemetry/tracing": "^0.22.0",
+    "@types/pino": "^6.3.8",
+    "env-var": "^7.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
