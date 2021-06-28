@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0-0](https://github.com/MapColonies/telemetry/compare/v1.1.2-0...v2.0.0-0) (2021-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** upgrade to otel v1.0.1
+
+### build
+
+* **deps:** upgrade to otel v1.0.1 ([676483b](https://github.com/MapColonies/telemetry/commit/676483bb685b3bea7afa211af9b88a29b455177b))
+
 ### [1.1.2-0](https://github.com/MapColonies/telemetry/compare/v1.1.1...v1.1.2-0) (2021-06-27)
 
 ### [1.1.1](https://github.com/MapColonies/telemetry/compare/v1.1.0...v1.1.1) (2021-05-19)
