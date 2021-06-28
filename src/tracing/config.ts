@@ -4,7 +4,6 @@ import { getCommonConfig } from '../common/config';
 const DEFAULT_URL = 'http://localhost:55681/v1/trace';
 export interface TracingConfig {
   isEnabled: boolean;
-  serviceName?: string;
   hostname?: string;
   url?: string;
   version?: string;
