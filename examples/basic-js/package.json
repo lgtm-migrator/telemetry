@@ -5,8 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "express": "4.17.1",
-    "@map-colonies/telemetry": "1.1.0-7",
-    "@opentelemetry/instrumentation-http": "0.18.0",
-    "@opentelemetry/instrumentation-express": "0.14.0"
+    "@map-colonies/telemetry": "2.0.0-0",
+    "@opentelemetry/instrumentation-express": "^0.22.0",
+    "@opentelemetry/instrumentation-http": "^0.21.0"
   }
 }
