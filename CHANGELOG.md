@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/MapColonies/telemetry/compare/v2.0.0...v2.1.0) (2021-06-29)
+
+
+### Features
+
+* **tracing:** trace id on header middleware ([#27](https://github.com/MapColonies/telemetry/issues/27)) ([a6a2a31](https://github.com/MapColonies/telemetry/commit/a6a2a31cebce3378d37fee1ebabd34261606de8e))
+
 ## [2.0.0](https://github.com/MapColonies/telemetry/compare/v2.0.0-0...v2.0.0) (2021-06-28)
 
 ## [2.0.0-0](https://github.com/MapColonies/telemetry/compare/v1.1.2-0...v2.0.0-0) (2021-06-28)
