@@ -13,7 +13,11 @@ export class Tracing implements TelemetryBase<void> {
   }
 
   public start(): void {
-    const { version, ...exporterConfig } = this.config;
+    const { version, isEnabled, ...exporterConfig } = this.config;
+
+    if (!isEnabled) {
+      return;
+    }
 
     this.provider = new NodeTracerProvider();
 
