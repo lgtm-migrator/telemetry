@@ -8,10 +8,13 @@ The following code shows a simple example of how to work with tracing. please no
 
 ```typescript
 import { Tracing } from '@map-colonies/telemetry';
+import { trace } from '@opentelemetry/api';
 
-const tracing = new Tracing('my-tracer-name');
+const tracing = new Tracing();
 
-const tracer = tracing.start();
+tracing.start();
+
+const tracer = trace.getTracer('tracing-name')
 
 const span = tracer.startSpan('some-action');
 
@@ -22,6 +25,18 @@ span.setAttribute('some-attribute');
 span.end();
 
 tracing.stop().then(() => console.log('done'));
+```
+
+Another way for initialize tracing with custom resource:
+
+```typescript
+import { Tracing } from '@map-colonies/telemetry';
+import { Resource } from '@opentelemetry/resources';
+
+const resource = new Resource({ 'service.version': number, 'service.name': 'my-service-name' });
+
+const tracing = new Tracing([], resource);
+...
 ```
 
 ### Metrics

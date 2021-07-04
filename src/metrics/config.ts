@@ -4,7 +4,7 @@ import { CommonConfig, getCommonConfig } from '../common/config';
 const DEFAULT_URL = 'http://localhost:55681/v1/metrics';
 const DEFAULT_SEND_INTERVAL = 15000;
 
-export interface MetricsConfig extends CommonConfig {
+export interface MetricsConfig extends Partial<CommonConfig> {
   isEnabled: boolean;
   url?: string;
   sendInterval?: number;

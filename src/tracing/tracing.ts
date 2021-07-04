@@ -1,5 +1,6 @@
 import { NodeTracerProvider } from '@opentelemetry/node';
 import { CollectorTraceExporter } from '@opentelemetry/exporter-collector';
+import { Resource } from '@opentelemetry/resources';
 import { SimpleSpanProcessor } from '@opentelemetry/tracing';
 import { InstrumentationOption, registerInstrumentations } from '@opentelemetry/instrumentation';
 import { TelemetryBase } from '../common/interfaces';
@@ -8,24 +9,31 @@ import { getTracingConfig, TracingConfig } from './config';
 export class Tracing implements TelemetryBase<void> {
   private provider?: NodeTracerProvider;
   private readonly config: TracingConfig;
-  public constructor(private readonly insturmentations?: InstrumentationOption[]) {
+  public constructor(private readonly insturmentations?: InstrumentationOption[], private readonly userResource?: Resource) {
     this.config = getTracingConfig();
   }
 
   public start(): void {
-    const { version, isEnabled, ...exporterConfig } = this.config;
+    const { isEnabled } = this.config;
 
     if (!isEnabled) {
       return;
     }
 
-    this.provider = new NodeTracerProvider();
+    const { version, serviceName, ...exporterConfig } = this.config;
+
+    let resource = new Resource({ 'service.version': version, 'service.name': serviceName });
+
+    if (this.userResource) {
+      resource = resource.merge(this.userResource);
+    }
+
+    this.provider = new NodeTracerProvider({ resource });
 
     registerInstrumentations({ tracerProvider: this.provider, instrumentations: this.insturmentations });
 
     const exporter = new CollectorTraceExporter({
       ...exporterConfig,
-      attributes: { 'service.version': version },
     });
 
     // consider batch processor
