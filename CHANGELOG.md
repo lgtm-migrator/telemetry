@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/MapColonies/telemetry/compare/v3.0.0...v3.1.0) (2021-07-14)
+
+
+### Features
+
+* **tracing:** context binding util ([#32](https://github.com/MapColonies/telemetry/issues/32)) ([9725ed7](https://github.com/MapColonies/telemetry/commit/9725ed7141994c3264a3016e642ca842f0d042a4))
+
 ## [3.0.0](https://github.com/MapColonies/telemetry/compare/v2.2.0...v3.0.0) (2021-07-04)
 
 
