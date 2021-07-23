@@ -2,7 +2,7 @@ const { Tracing, Metrics } = require('@map-colonies/telemetry');
 const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
 const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
 
-new Tracing('aaaa', [new ExpressInstrumentation(), new HttpInstrumentation({ ignoreOutgoingUrls: [/^.*\/v1\/metrics.*$/] })]).start();
+new Tracing([new ExpressInstrumentation(), new HttpInstrumentation({ ignoreOutgoingUrls: [/^.*\/v1\/metrics.*$/] })]).start();
 
 const meter = new Metrics('test_meter').start();
 

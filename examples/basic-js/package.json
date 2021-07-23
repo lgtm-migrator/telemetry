@@ -4,9 +4,9 @@
   "description": "Simple telemetry example in javascript",
   "main": "server.js",
   "dependencies": {
-    "@map-colonies/telemetry": "^2.0.0",
-    "@opentelemetry/instrumentation-express": "^0.22.0",
-    "@opentelemetry/instrumentation-http": "^0.21.0",
+    "@map-colonies/telemetry": "^3.1.0",
+    "@opentelemetry/instrumentation-express": "^0.23.0",
+    "@opentelemetry/instrumentation-http": "^0.23.0",
     "express": "4.17.1"
   }
 }
