@@ -1,18 +1,36 @@
 const { Tracing, Metrics } = require('@map-colonies/telemetry');
-const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
-const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
+const { SemanticResourceAttributes } = require('@opentelemetry/semantic-conventions');
+const metricsApi = require('@opentelemetry/api-metrics');
 
-new Tracing([new ExpressInstrumentation(), new HttpInstrumentation({ ignoreOutgoingUrls: [/^.*\/v1\/metrics.*$/] })]).start();
+const ignoredPaths = /^.*\/v1\/metrics.*$/;
 
-const meter = new Metrics('test_meter').start();
+const tracing = new Tracing(
+  undefined,
+  {
+    '@opentelemetry/instrumentation-http': {
+      ignoreOutgoingRequestHook: (req) => ignoredPaths.test(req.path),
+    },
+  },
+  { [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: 'TEST' },
+  true
+);
+tracing.start();
 
-const counter = meter.createCounter('test_counter', { x: 'd' });
+process.on('SIGTERM', async () => {
+  await tracing.stop();
+});
+
+// const metrics = new Metrics({ [SemanticResourceAttributes.DEPLOYMENT_ENVIRONMENT]: 'TEST' });
+// metrics.start();
 
 const express = require('express');
 const app = express();
 
+const counter = metricsApi.metrics.getMeter('test').createCounter('test_counter', { x: 'd' });
+
 app.get('/', (req, res) => {
   counter.add(1);
+
   res.json({ x: 'd' });
 });
 

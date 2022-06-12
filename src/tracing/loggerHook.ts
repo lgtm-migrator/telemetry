@@ -1,17 +1,20 @@
-import { context, trace } from '@opentelemetry/api';
-import { LogFn, Logger } from 'pino';
+import * as api from '@opentelemetry/api';
+import { pino } from 'pino';
 
 // ignored because its the same type needed for LogFn
 // eslint-disable-next-line @typescript-eslint/ban-types, @typescript-eslint/no-explicit-any
 export type LogFnArgs = [obj: object, msg?: string, ...args: any[]] | [msg: string, ...args: any[]];
 
+/**
+ * @deprecated use mixin instead
+ */
 // disabled because this function signature is required by pino
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function logMethod(this: Logger, args: LogFnArgs, method: LogFn, level: number): void {
-  const span = trace.getSpan(context.active());
+export function logMethod(this: pino.Logger, args: LogFnArgs, method: pino.LogFn, level: number): void {
+  const span = api.trace.getSpan(api.context.active());
 
   if (!span) {
-    method.apply<Logger, LogFnArgs, void>(this, args);
+    method.apply<pino.Logger, LogFnArgs, void>(this, args);
     return;
   }
   const traceObj = { spanId: span.spanContext().spanId, traceId: span.spanContext().traceId };
@@ -24,5 +27,5 @@ export function logMethod(this: Logger, args: LogFnArgs, method: LogFn, level: n
     logFnArgs = [traceObj, firstArg, ...rest];
   }
 
-  method.apply<Logger, LogFnArgs, void>(this, logFnArgs);
+  method.apply<pino.Logger, LogFnArgs, void>(this, logFnArgs);
 }
