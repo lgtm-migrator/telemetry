@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/MapColonies/telemetry/compare/v4.0.0...v4.1.0) (2022-06-13)
+
+
+### Features
+
+* added functions to simplify ignoring request paths ([#48](https://github.com/MapColonies/telemetry/issues/48)) ([4e1f13a](https://github.com/MapColonies/telemetry/commit/4e1f13a20596384518e96986612fd5d9d7f9b962))
+
 ## [4.0.0](https://github.com/MapColonies/telemetry/compare/v3.1.0...v4.0.0) (2022-06-12)
 
 
